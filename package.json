@@ -1,6 +1,6 @@
 {
   "name": "vue-cli-plugin-electron-webpack",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "vue-cli 3 plugin to add electron",
   "main": "index.js",
   "repository": {

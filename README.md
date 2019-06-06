@@ -6,7 +6,7 @@ Vue CLI plugin for electron `@vue/cli` 3.0
 
     $ vue create my-app
     $ cd my-app
-    $ vue add en
+    $ vue add electron-webpack
 
 ## Usage
 

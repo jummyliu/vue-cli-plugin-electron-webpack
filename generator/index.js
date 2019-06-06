@@ -1,6 +1,6 @@
 const fs = require('fs')
 
-modules.exports = (api, opts, rootOptions) => {
+module.exports = (api, opts, rootOptions) => {
   const utils = require('./utils')(api)
 
   api.extendPackage({
