@@ -10,8 +10,24 @@ Vue CLI plugin for electron `@vue/cli` 3.0
 
 ## Usage
 
+run vue, electron
+
+    $ npm run dev
+
+package vue, run electron dev
+
+    $ npm run start
+
+package vue, electron
+
+    $ npm run pack
+
+package vue, electron and build
+
+    $ npm run builder
+
 ## Contributors
-Here is a list of [Contributors]()
+Here is a list of [Contributors](https://github.com/jummyliu/vue-cli-plugin-electron-webpack/graphs/contributors)
 
 ### TODO
 
@@ -19,5 +35,7 @@ Here is a list of [Contributors]()
 MIT/X11
 
 ## Bug Reports
+
+Report [here](https://github.com/jummyliu/vue-cli-plugin-electron-webpack/issues)
 
 ## Contact
