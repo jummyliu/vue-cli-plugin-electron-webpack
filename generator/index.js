@@ -16,7 +16,8 @@ module.exports = (api, opts, rootOptions) => {
       "dev": "npm run dev:renderer | npm run dev:main",
       "dev:renderer": "npm run serve",
       "dev:main": "cross-env NODE_ENV=development webpack --progress --colors --config .electron-vue/webpack.config.js && electron .",
-      "start": "npm run pack && electron .",
+      "start": "npm run pack:renderer && npm run start:main",
+      "start:main": "cross-env NODE_ENV=production webpack --progress --colors --config .electron-vue/webpack.config.js && electron .",
       "pack": "npm run pack:renderer && npm run pack:main",
       "pack:renderer": "npm run build",
       "pack:main": "cross-env NODE_ENV=production webpack --progress --colors --config .electron-vue/webpack.config.js && electron-builder --dir",
@@ -34,26 +35,25 @@ module.exports = (api, opts, rootOptions) => {
     }
   })
 
-  api.postProcessFiles((files) => {
-    files['src/router/index.js'] = prettier.format(files['src/router/index.js'], {
-      semi: false,
-      singleQuote: true,
-      parser: 'babylon',
-    });
-  })
+  let path
+  if (fs.existsSync('src/router/index.js')) {
+    path = './src/router/index.js'
+  } else if (fs.existsSync('src/router.js')) {
+    path = './src/router.js'
+  }
+  if (path) {
+    utils.updateFile(api, path, lines => {
+      // replace router mode to hash
+      const reg = /^([\s]*['"]?mode['"]?\s*:\s*['"]?)([\s\S]*?)(['"]?,?[\s\S])*$/
+      const index = lines.findIndex(line => line.match(reg))
+      if (index !== -1) {
+        lines[index] = lines[index].replace(reg, '$1hash$3')
+      }
+      return lines
+    })
+  }
 
-  utils.updateFile(api, 'src/router.js', lines => {
-    // replace router mode to hash
-    const reg = /^([\s]*['"]?mode['"]?\s*:\s*['"]?)([\s\S]*?)(['"]?,?[\s\S])*$/
-    const index = lines.findIndex(line => line.match(reg))
-    if (index !== -1) {
-      lines[index] = lines.replace(reg, '$1hash$3')
-    }
-  })
-
-  api.render({
-    './.electron-vue': './templates/.electron-vue'
-  })
+  api.render('./templates')
 
   // update vue.config.js
   utils.updateVueConfig(cfg => {
