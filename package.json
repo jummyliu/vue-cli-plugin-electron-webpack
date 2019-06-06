@@ -1,0 +1,21 @@
+{
+  "name": "vue-cli-plugin-electron",
+  "version": "1.0.1",
+  "description": "vue-cli 3 plugin to add electron",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "keywords": [
+    "vue-cli",
+    "vue-cli-3",
+    "vue-cli-plugin",
+    "vue-cli electron",
+    "vue-cli-3 electron",
+    "vue-cli-plugin electron",
+    "electron"
+  ],
+  "author": "jummyliu",
+  "license": "MIT"
+}
