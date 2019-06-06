@@ -1,11 +1,11 @@
 {
-  "name": "vue-cli-plugin-electron",
+  "name": "vue-cli-plugin-electron-webpack",
   "version": "1.0.1",
   "description": "vue-cli 3 plugin to add electron",
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "git+ssh://github.com/jummyliu/vue-cli-plugin-electron-webpack.git"
   },
   "keywords": [
     "vue-cli",
@@ -17,5 +17,9 @@
     "electron"
   ],
   "author": "jummyliu",
-  "license": "MIT"
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jummyliu/vue-cli-plugin-electron-webpack/issues"
+  },
+  "homepage": "https://github.com/jummyliu/vue-cli-plugin-electron-webpack#readme"
 }
