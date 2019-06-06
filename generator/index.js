@@ -42,7 +42,7 @@ module.exports = (api, opts, rootOptions) => {
     path = './src/router.js'
   }
   if (path) {
-    utils.updateFile(api, path, lines => {
+    utils.updateFile(path, lines => {
       // replace router mode to hash
       const reg = /^([\s]*['"]?mode['"]?\s*:\s*['"]?)([\s\S]*?)(['"]?,?[\s\S])*$/
       const index = lines.findIndex(line => line.match(reg))
