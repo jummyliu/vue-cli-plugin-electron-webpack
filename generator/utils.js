@@ -10,7 +10,7 @@ module.exports = api => {
 
       setTimeout(() => {
         fs.writeFileSync(file, content, { encoding: 'utf8' })
-      }, 10)
+      }, 100)
     },
     
     updateVueConfig(callback) {
@@ -28,7 +28,7 @@ module.exports = api => {
             `module.exports = ${JSON.stringify(config, null, 2)}`,
             { encoding: 'utf8' }
           )
-        }, 10)
+        }, 100)
       }
     }
 
