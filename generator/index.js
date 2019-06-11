@@ -3,10 +3,10 @@ const fs = require('fs')
 module.exports = (api, opts, rootOptions) => {
   const utils = require('./utils')(api)
 
+  // modify package.json
   api.extendPackage({
     main: "./dist/main.js",
     devDependencies: {
-      "cross-env": "^5.2.0",
       "electron": "^5.0.2",
       "electron-builder": "^20.43.0",
       "webpack": "^4.33.0",
@@ -15,14 +15,14 @@ module.exports = (api, opts, rootOptions) => {
     scripts: {
       "dev": "npm run dev:renderer | npm run dev:main",
       "dev:renderer": "npm run serve",
-      "dev:main": "cross-env NODE_ENV=development webpack --progress --colors --config .electron-vue/webpack.config.js && electron .",
+      "dev:main": "webpack --progress --colors --config .electron-config/webpack.dev.js && electron .",
       "start": "npm run pack:renderer && npm run start:main",
-      "start:main": "cross-env NODE_ENV=production webpack --progress --colors --config .electron-vue/webpack.config.js && electron .",
+      "start:main": "webpack --progress --colors --config .electron-config/webpack.prod.js && electron .",
       "pack": "npm run pack:renderer && npm run pack:main",
       "pack:renderer": "npm run build",
-      "pack:main": "cross-env NODE_ENV=production webpack --progress --colors --config .electron-vue/webpack.config.js && electron-builder --dir",
+      "pack:main": "webpack --progress --colors --config .electron-config/webpack.prod.js && electron-builder --dir",
       "builder": "npm run pack:renderer && npm run builder:main",
-      "builder:main": "cross-env NODE_ENV=production webpack --progress --colors --config .electron-vue/webpack.config.js && electron-builder"
+      "builder:main": "webpack --progress --colors --config .electron-config/webpack.prod.js && electron-builder"
     },
     build: {
       directories: {
@@ -35,6 +35,7 @@ module.exports = (api, opts, rootOptions) => {
     }
   })
 
+  // modify router's mode to hash route # not support history route
   let path
   if (fs.existsSync('src/router/index.js')) {
     path = './src/router/index.js'
@@ -53,6 +54,7 @@ module.exports = (api, opts, rootOptions) => {
     })
   }
 
+  // copy config files to project
   api.render('./templates')
 
   // update vue.config.js

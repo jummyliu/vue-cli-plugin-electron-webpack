@@ -16,10 +16,10 @@ function createWindow () {
     width: 800,
     height: 600,
     useContentSize: true,
+    // frame: false, // 隐藏窗口外壳
     webPreferences: {
       nodeIntegration: true // 允许在页面调用 node api
-    },
-    frame: false // 隐藏窗口外壳
+    }
   })
   mainWindow.loadURL(winURL)
 
