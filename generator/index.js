@@ -29,7 +29,7 @@ module.exports = (api, opts, rootOptions) => {
         output: "build"
       },
       files: [
-        "./dist/*"
+        "./dist/**"
       ],
       asar: true
     }
