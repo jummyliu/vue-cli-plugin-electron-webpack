@@ -60,6 +60,10 @@ module.exports = (api, opts, rootOptions) => {
   // update vue.config.js
   utils.updateVueConfig(cfg => {
     cfg.publicPath = './'
+    if (!cfg.configureWebpack) {
+      cfg.configureWebpack = {}
+    }
+    cfg.configureWebpack.target = 'electron-renderer'
     return cfg
   })
 }
