@@ -12,7 +12,7 @@ module.exports = api => {
         fs.writeFileSync(file, content, { encoding: 'utf8' })
       }, 100)
     },
-    
+
     updateVueConfig(callback) {
       let config
       const configPath = api.resolve('vue.config.js')
@@ -25,7 +25,7 @@ module.exports = api => {
         setTimeout(() => {
           fs.writeFileSync(
             configPath,
-            `module.exports = ${JSON.stringify(config, null, 2)}`,
+            api.genJSConfig(config),
             { encoding: 'utf8' }
           )
         }, 100)

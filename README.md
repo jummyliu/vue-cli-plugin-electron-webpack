@@ -2,6 +2,10 @@
 
 Vue CLI plugin for electron `@vue/cli` 3.0
 
+## update log
+2019-08-08 - 1.1.4
+- Support electron 5/6, electron-rebuild, two package.json Structure.
+
 ## Installation
 
     $ vue create my-app
@@ -10,9 +14,14 @@ Vue CLI plugin for electron `@vue/cli` 3.0
 
 ## Usage
 
-run vue, electron
+run dev in a terminal
 
     $ npm run dev
+
+run dev in two terminal
+
+    bash1:$ npm run serve
+    bash2:$ npm run dev:main
 
 package vue, run electron dev
 
