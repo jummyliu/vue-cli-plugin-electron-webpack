@@ -5,6 +5,7 @@ module.exports = (api, opts, rootOptions) => {
 
   const pkgConfig = {
     main: './dist/main.js',
+    dependencies: {},
     devDependencies: {},
     scripts: {
       "dev": "npm run dev:renderer | npm run dev:main",
@@ -49,6 +50,19 @@ module.exports = (api, opts, rootOptions) => {
         "webpack-cli": "^3.3.6"
       }
       break
+    case '7':
+      pkgConfig.dependencies = {
+        ...pkgConfig.dependencies,
+        "electron": "^7.1.1"
+      }
+      pkgConfig.devDependencies = {
+        ...pkgConfig.devDependencies,
+        "electron-builder": "^22.1.0",
+        "webpack": "^4.39.1",
+        "webpack-cli": "^3.3.6"
+      }
+      break
+
   }
 
   // electron-rebuild

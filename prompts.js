@@ -5,9 +5,10 @@ module.exports = [
     message: 'Choose the electron version',
     choices: [
       { name: 'electron 5', value: '5' },
-      { name: 'electron 6', value: '6' }
+      { name: 'electron 6', value: '6' },
+      { name: 'electron 7', value: '7' }
     ],
-    default: '6'
+    default: '7'
   },
   {
     type: 'confirm',

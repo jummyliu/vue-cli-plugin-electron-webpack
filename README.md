@@ -3,6 +3,9 @@
 Vue CLI plugin for electron `@vue/cli` 3.0
 
 ## update log
+2019-11-15 - 1.1.5
+- Support electron 7
+
 2019-08-08 - 1.1.4
 - Support electron 5/6, electron-rebuild, two package.json Structure.
 
