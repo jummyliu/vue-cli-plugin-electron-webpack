@@ -6,9 +6,10 @@ module.exports = [
     choices: [
       { name: 'electron 5', value: '5' },
       { name: 'electron 6', value: '6' },
-      { name: 'electron 7', value: '7' }
+      { name: 'electron 7', value: '7' },
+      { name: 'electron 8', value: '8' }
     ],
-    default: '7'
+    default: '8'
   },
   {
     type: 'confirm',
