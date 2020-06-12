@@ -74,6 +74,17 @@ module.exports = (api, opts, rootOptions) => {
         "webpack-cli": "^3.3.6"
       }
       break
+    case '9':
+      pkgConfig.dependencies = {
+        ...pkgConfig.dependencies,
+        "electron": "^9.0.3"
+      }
+      pkgConfig.devDependencies = {
+        ...pkgConfig.devDependencies,
+        "electron-builder": "^22.7.0",
+        "webpack": "^4.39.1",
+        "webpack-cli": "^3.3.6"
+      }
   }
 
   // electron-rebuild

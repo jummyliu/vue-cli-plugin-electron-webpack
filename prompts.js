@@ -7,9 +7,10 @@ module.exports = [
       { name: 'electron 5', value: '5' },
       { name: 'electron 6', value: '6' },
       { name: 'electron 7', value: '7' },
-      { name: 'electron 8', value: '8' }
+      { name: 'electron 8', value: '8' },
+      { name: 'electron 9', value: '9' }
     ],
-    default: '8'
+    default: '9'
   },
   {
     type: 'confirm',
