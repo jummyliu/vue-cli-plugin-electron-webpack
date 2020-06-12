@@ -76,11 +76,11 @@ module.exports = (api, opts, rootOptions) => {
       break
     case '9':
       pkgConfig.dependencies = {
-        ...pkgConfig.dependencies,
-        "electron": "^9.0.3"
+        ...pkgConfig.dependencies
       }
       pkgConfig.devDependencies = {
         ...pkgConfig.devDependencies,
+        "electron": "^9.0.3",
         "electron-builder": "^22.7.0",
         "webpack": "^4.39.1",
         "webpack-cli": "^3.3.6"
