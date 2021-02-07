@@ -85,6 +85,7 @@ module.exports = (api, opts, rootOptions) => {
         "webpack": "^4.39.1",
         "webpack-cli": "^3.3.6"
       }
+      break
     case '10':
       pkgConfig.dependencies = {
         ...pkgConfig.dependencies
@@ -96,14 +97,33 @@ module.exports = (api, opts, rootOptions) => {
         "webpack": "^4.39.1",
         "webpack-cli": "^3.3.6"
       }
+      break
+    case '11':
+      pkgConfig.dependencies = {
+        ...pkgConfig.dependencies
+      }
+      pkgConfig.devDependencies = {
+        ...pkgConfig.devDependencies,
+        "electron": "^11.2.3",
+        "electron-builder": "^22.9.1",
+        "webpack": "^4.39.1",
+        "webpack-cli": "^3.3.6"
+      }
+      break
   }
 
   // electron-rebuild
   if (opts.rebuild) {
-    if (opts.version === '10') {
-      pkgConfig.devDependencies["electron-rebuild"] = "^2.0.3"
-    } else {
-      pkgConfig.devDependencies["electron-rebuild"] = "^1.10.1"
+    switch (opts.version) {
+      case '10':
+        pkgConfig.devDependencies["electron-rebuild"] = "^2.0.3"
+        break
+      case '11':
+        pkgConfig.devDependencies["electron-rebuild"] = "^2.3.5"
+        break
+      default:
+        pkgConfig.devDependencies["electron-rebuild"] = "^1.10.1"
+        break
     }
     pkgConfig.scripts["rebuild"] = "electron-rebuild"
     pkgConfig.scripts["postinstall"] = "electron-rebuild install-app-deps"
